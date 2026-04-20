@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Admin{% endblock %}
+{% block content %}
+<section class="card admin-head">
+    <div>
+        <p class="eyebrow">Admin page</p>
+        <h1>Бүртгэгдсэн мэдээлэл</h1>
+        <p class="lead">Excel файл болгон татаж авах боломжтой.</p>
+    </div>
+    <a class="btn-primary" href="{{ url_for('export_excel') }}">Excel татах</a>
+</section>
+
+<section class="card table-card">
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Овог</th>
+                    <th>Нэр</th>
+                    <th>Утас</th>
+                    <th>Email</th>
+                    <th>Огноо</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for row in rows %}
+                <tr>
+                    <td>{{ row["id"] }}</td>
+                    <td>{{ row["ovog"] }}</td>
+                    <td>{{ row["ner"] }}</td>
+                    <td>{{ row["utas"] }}</td>
+                    <td>{{ row["email"] }}</td>
+                    <td>{{ row["created_at"] }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6" class="empty">Одоогоор бүртгэл алга.</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Бүртгэл{% endblock %}
+{% block content %}
+<section class="card hero">
+    <div>
+        <p class="eyebrow">Business / Professional</p>
+        <h1>Бүртгэл</h1>
+        <p class="lead">Овог, нэр, утасны дугаар, имэйл бүртгэнэ.</p>
+        <p class="hint">Email жишээ: <strong>name@example.com</strong></p>
+    </div>
+</section>
+
+<section class="card form-card">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="messages">
+          {% for category, message in messages %}
+            <div class="alert {{ category }}">{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" class="grid-form" novalidate>
+        <div class="field">
+            <label for="ovog">Овог</label>
+            <input id="ovog" name="ovog" type="text" placeholder="Жишээ: Бат" value="{{ form_data.ovog if form_data else '' }}" required>
+        </div>
+
+        <div class="field">
+            <label for="ner">Нэр</label>
+            <input id="ner" name="ner" type="text" placeholder="Жишээ: Дорж" value="{{ form_data.ner if form_data else '' }}" required>
+        </div>
+
+        <div class="field">
+            <label for="utas">Утасны дугаар</label>
+            <input id="utas" name="utas" type="text" placeholder="+976 99112233" value="{{ form_data.utas if form_data else '' }}" required>
+        </div>
+
+        <div class="field">
+            <label for="email">Имэйл</label>
+            <input id="email" name="email" type="email" placeholder="name@example.com" value="{{ form_data.email if form_data else '' }}" required>
+            <small>Зөв формат: user@domain.com</small>
+        </div>
+
+        <button type="submit" class="btn-primary">Register</button>
+    </form>
+</section>
+{% endblock %}

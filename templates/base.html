@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Register{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="topbar">
+        <div class="brand">Register System</div>
+        <div class="nav">
+            <a href="{{ url_for('register') }}">Бүртгэл</a>
+            <a href="{{ url_for('admin') }}">Admin</a>
+        </div>
+    </div>
+
+    <main class="shell">
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

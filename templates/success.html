@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Амжилттай{% endblock %}
+{% block content %}
+<section class="card success-card">
+    <div class="success-badge">✓</div>
+    <h1>Бүртгэл амжилттай хийгдлээ</h1>
+    <p>Таны мэдээлэл SQLite датабаазад хадгалагдлаа.</p>
+    <div class="actions">
+        <a class="btn-secondary" href="{{ url_for('register') }}">Шинэ бүртгэл</a>
+        <a class="btn-primary" href="{{ url_for('admin') }}">Admin page</a>
+    </div>
+</section>
+{% endblock %}
